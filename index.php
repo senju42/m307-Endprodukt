@@ -8,4 +8,4 @@
 <body>
     <a href="kundenerfassung.html">Kunde erfassen</a>
 </body>
-</html>
+</html>     
