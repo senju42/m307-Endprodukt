@@ -9,4 +9,5 @@
     <a href="index.php">Zurück</a><br>
     <a href="kundenerfassung.html">weiteren Kunde erfassen</a>
 </body>
+
 </html>
