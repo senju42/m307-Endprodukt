@@ -18,6 +18,6 @@
         ?>
     </ul>
     <a href="index.php">Zurück zur Kundenliste</a><br>
-    <a href="kundenerfassung.html">Weiteren Kunden erfassen</a>
+    <a href="kundenerfassung.php">Weiteren Kunden erfassen</a>
 </body>
 </html>
