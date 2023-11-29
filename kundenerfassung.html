@@ -1,7 +1,5 @@
 <?php
-
-// INHALT SPEICHERN
-
+<!--INHALT SPEICHERN-->
 $vorname = $_POST['vorname'];
 $nachname = $_POST['nachname'];
 $strasse = $_POST['strasse'];
@@ -12,48 +10,48 @@ $email = $_POST['email'];
 $telefon = $_POST['telefon'];
 $kundenklasse = $_POST['kundenklasse'];
 
-// ARRAYS DEFINIEREN
-// vorname
+<!--ARRAYS DEFINIEREN-->
+<!--vorname-->
 if( array_key_exists('vorname',$_POST))
         $vorname = $_POST['vorname'];
 else
         $vorname = '';
-// nachname
+<!--nachname-->
 if( array_key_exists('nachname',$_POST))
         $nachname = $_POST['nachname'];
 else
         $nachname = '';
-// strasse
+<!--strasse-->
 if( array_key_exists('strasse',$_POST))
         $strasse = $_POST['strasse'];
 else
         $strasse = '';
-// ort
+<!--ort-->
 if( array_key_exists('ort',$_POST))
         $ort = $_POST['ort'];
 else
         $ort = '';
-// plz
+<!--plz-->
 if( array_key_exists('plz',$_POST))
         $plz = $_POST['plz'];
 else
         $plz = '';
-// kanton
+<!--kanton-->
 if( array_key_exists('kanton',$_POST))
         $kanton = $_POST['kanton'];
 else
         $kanton = '';
-// email
+<!--email-->
 if( array_key_exists('email',$_POST))
         $email = $_POST['email'];
 else
         $email = '';
-// telefon
+<!--telefon-->
 if( array_key_exists('telefon',$_POST))
         $telefon = $_POST['telefon'];
 else
         $telefon = '';
-// kundenklasse
+<!--kundenklasse-->
 if( array_key_exists('kundenklasse',$_POST))
         $kundenklasse = $_POST['kundenklasse'];
 else
@@ -133,7 +131,8 @@ else
         ><br />
       </div>
       <div class="container">
-      <input type="submit" value="Speichern">      </div>
+        <a href="erfasst.php" class="save-button">Speichern</a>
+      </div>
     </form>
   </body>
 </html>
