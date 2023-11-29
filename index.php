@@ -64,5 +64,5 @@
         ?>
     </table>
 </body>
-<a href="kundenerfassung.html">Kunde erfassen</a>
+<a href="kundenerfassung.php">Kunde erfassen</a>
 </html>

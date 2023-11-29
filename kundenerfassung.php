@@ -1,7 +1,5 @@
 <?php
-
 // INHALT SPEICHERN
-
 $vorname = $_POST['vorname'];
 $nachname = $_POST['nachname'];
 $strasse = $_POST['strasse'];
