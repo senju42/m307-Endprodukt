@@ -2,12 +2,16 @@
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kundenliste</title>
+   
+<!-- Deklaration des HTML-Dokumenttyps und der Sprache -->
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Kundenliste</title> 
     <style>
+        
+        /* Styling für das Aussehen der Seite */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, sans-serif; 
         }
 
         table {
@@ -42,6 +46,8 @@
 <body>
     <h1>Erfasste Kunden</h1>
 
+<!-- Kundeninformationen probe -->
+
     <?php
     $kunden = array(
         array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
@@ -59,8 +65,17 @@
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
     }
     ?>
+<?php
+    // PHP-Code für die Kundenliste
+    
+    $kunden = array(
+        array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
+    );
+?>
+
 
     <table>
+        <!-- Tabelle zur Anzeige der Kundeninformationen -->
         <tr>
             <th>Name</th>
             <th>Vorname</th>
@@ -84,6 +99,6 @@
         ?>
     </table>
 </body>
-<a href="kundenerfassung.php">Kunde erfassen</a>
+<a href="kundenerfassung.php">Kunde erfassen</a> <!-- Link zur Seite für die Erfassung neuer Kunden -->
 
 </html>
