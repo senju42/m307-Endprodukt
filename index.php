@@ -22,13 +22,14 @@
             background-color: #C5DF9A;
         }
         a {
-            
-            text-decoration: none;
-            padding: 10px;
-            background-color: #8CBF35;
-            color: #fff;
-            border-radius: 5px;
-        }
+    text-decoration: none;
+    padding: 10px;
+    background-color: #8CBF35;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: 20px; 
+    display: inline-block; 
+}
     </style>
 </head>
 <body>
