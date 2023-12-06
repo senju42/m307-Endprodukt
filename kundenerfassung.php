@@ -4,10 +4,7 @@ $vorname = $_POST['vorname'] ?? "";
 $nachname = $_POST['nachname'] ?? "";
 $strasse = $_POST['strasse'] ?? "";
 $ort = $_POST['ort'] ?? "";
-$plz = $_POST['plz'] ?? "";
-$kanton = $_POST['kanton'] ?? "";
-$email = $_POST['email'] ?? "";
-$telefon = $_POST['telefon'] ?? "";
+$kontakt = $_POST['kontakt'] ?? "";
 $kundenklasse = $_POST['kundenklasse'] ?? "";
 
 // VERBINDUNG MIT DB
@@ -22,6 +19,17 @@ try {
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }
 
+
+$ort = 12;
+$sql = "
+INSERT INTO `kunden` (`Kunden_ID`, `Vorname`, `Nachname`, `Strasse&Nummer`, `status`, `Kontakt_Kontakt_ID`, `Wohnort_Wohnort_ID`, `Klasse_Klasse_ID`) 
+             VALUES         (NULL,  :Vorname, :Nahcname, \'MG1\', \'aktiv\', \'1\', \'1\', \'4\');";
+
+
+//Abfrage abschicken
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $stmt = $db->prepare($sql);
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,35 +51,57 @@ try {
                 <label for="nachname">Nachname</label>
                 <input type="nachname" name="nachname" id="nachname" />
 
-                <label for="strasse">Strasse & Nr.</label>
+                <label for="strasse">Strasse & Hausnummer</label>
                 <input type="strasse" name="strasse" id="strasse" />
 
-                <label for="ort">Ortsname</label>
-                <input type="ort" name="ort" id="ort" />
+                <label for="status">Status</label>
+                <input type="status" name="status" id="status" />
 
-                <label for="plz">Postleitzahl</label>
-                <input type="plz" name="plz" id="plz" />
+                <!-- <label for="strasse">Strasse & Nr.</label>
+                <input type="strasse" name="strasse" id="strasse" /> -->
 
-                <label for="kanton">Kanton</label>
-                <input type="kanton" name="kanton" id="kanton" />
+                <label for="ort">Wohnort</label>
+                <!-- <input type="ort" name="ort" id="ort" /> -->
+                <select name="ort">
+                        <?php
+                        $sql  = "SELECT * FROM `wohnort`";
+                        $stmt = $db->prepare($sql);
+                        $stmt->execute();
+                        while ($lp = $stmt->fetch()) {
+                                echo '<option value="' . $lp['Wohnort_ID'] . '">' . $lp['Ortsname'] . '</option>';
+                        } ?>
+                </select>
+                <!-- <label for="plz">Postleitzahl</label>
+                <input type="plz" name="plz" id="plz" /> -->
 
-                <label for="email">E-Mail</label>
-                <input type="email" name="email" id="email" />
+                <!-- <label for="kanton">Kanton</label>
+                <input type="kanton" name="kanton" id="kanton" /> -->
 
-                <label for="telefon">Telefonnummer</label>
-                <input type="telefon" name="telefon" id="telefon" />
+                <label for="kontakt">Kontakt</label>
+                <select name="kontakt">
+                        <?php
+                        $sql  = "SELECT * FROM `kontakt`";
+                        $stmt = $db->prepare($sql);
+                        $stmt->execute();
+                        while ($lp = $stmt->fetch()) {
+                                echo '<option value="' . $lp['Kontakt_ID'] . '">' . $lp['Email'] . '</option>';
+                        } ?>
+                </select>
+
+                <!-- <label for="telefon">Telefonnummer</label>
+                <input type="telefon" name="telefon" id="telefon" /> -->
                 <div>
                         <p>Kundenklasse</p>
-                        <input type="radio" name="kundenklasse" id="firmenkunde" value="firmenkunde" />
+                        <input type="radio" name="kundenklasse" id="firmenkunde" value="1" />
                         <label for="firmenkunde"><i>Firmenkunde</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="einzelperson" value="einzelperson" />
+                        <input type="radio" name="kundenklasse" id="einzelperson" value="2" />
                         <label for="einzelperson"><i>Einzelperson</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="partner" value="partner" />
+                        <input type="radio" name="kundenklasse" id="partner" value="3" />
                         <label for="partner"><i>Partner</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="bljs" value="bljs" />
+                        <input type="radio" name="kundenklasse" id="bljs" value="4" />
                         <label for="bljs"><i>Betriebslehrjahrstelle</i></label><br />
                 </div>
                 <div class="container">
