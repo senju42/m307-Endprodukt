@@ -10,53 +10,6 @@ $email = $_POST['email'] ?? "";
 $telefon = $_POST['telefon'] ?? "";
 $kundenklasse = $_POST['kundenklasse'] ?? "";
 
-// // ARRAYS DEFINIEREN
-// // vorname
-// if( array_key_exists('vorname',$_POST))
-//         $vorname = $_POST['vorname'];
-// else
-//         $vorname = '';
-// // nachname
-// if( array_key_exists('nachname',$_POST))
-//         $nachname = $_POST['nachname'];
-// else
-//         $nachname = '';
-// // strasse
-// if( array_key_exists('strasse',$_POST))
-//         $strasse = $_POST['strasse'];
-// else
-//         $strasse = '';
-// // ort
-// if( array_key_exists('ort',$_POST))
-//         $ort = $_POST['ort'];
-// else
-//         $ort = '';
-// // plz
-// if( array_key_exists('plz',$_POST))
-//         $plz = $_POST['plz'];
-// else
-//         $plz = '';
-// // kanton
-// if( array_key_exists('kanton',$_POST))
-//         $kanton = $_POST['kanton'];
-// else
-//         $kanton = '';
-// // email
-// if( array_key_exists('email',$_POST))
-//         $email = $_POST['email'];
-// else
-//         $email = '';
-// // telefon
-// if( array_key_exists('telefon',$_POST))
-//         $telefon = $_POST['telefon'];
-// else
-//         $telefon = '';
-// // kundenklasse
-// if( array_key_exists('kundenklasse',$_POST))
-//         $kundenklasse = $_POST['kundenklasse'];
-// else
-//         $kundenklasse = '';
-
 // VERBINDUNG MIT DB
 // User und Passwort
 $dbuser = 'root';
