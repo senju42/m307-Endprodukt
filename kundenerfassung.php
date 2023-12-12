@@ -71,9 +71,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmtWohnort->bindParam(':Postleitzahl', $wohnortPLZ); // Achtung: Du musst $wohnortPLZ definieren!
         $stmtWohnort->bindParam(':Kanton', $wohnortKanton); // Achtung: Du musst $wohnortKanton definieren!
         $stmtWohnort->execute();
-
-        //Anweisung ausführen
-        $stmt->execute();
 }
 ?>
 
