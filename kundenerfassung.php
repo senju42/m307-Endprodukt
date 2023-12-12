@@ -19,16 +19,34 @@ try {
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }
 
-
-$ort = 12;
 $sql = "
 INSERT INTO `kunden` (`Kunden_ID`, `Vorname`, `Nachname`, `Strasse&Nummer`, `status`, `Kontakt_Kontakt_ID`, `Wohnort_Wohnort_ID`, `Klasse_Klasse_ID`) 
-             VALUES         (NULL,  :Vorname, :Nahcname, \'MG1\', \'aktiv\', \'1\', \'1\', \'4\');";
-
+             VALUES         (NULL,  :Vorname, :Nachname,   :Strasse&Nummer,  :status,                \'1\',                \'1\',              \'4\');";
+$sql = "
+INSERT INTO `klasse` (`Klasse_ID`, `Klasse_Name`)
+             VALUES         (NULL,  :Klasse_Name);";
+$sql = "
+INSERT INTO `kontakt`(`Kontakt_ID`, `Email`, `Telefon`)
+             VALUES          (NULL,  :Email,  :Telefon);";
+$sql = "
+INSERT INTO `wohnort`(`Wohnort_ID`, `Ortsname`, `Postleitzahl`, `Kanton`)
+             VALUES          (NULL,  :Ortsname,  :Postleitzahl,  :Kanton);";
 
 //Abfrage abschicken
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $db->prepare($sql);
+
+        //Werte an Parameter binden
+        $stmt->bindParam(':Vorname', $vorname);
+        $stmt->bindParam(':Nachname', $nachname);
+        $stmt->bindParam(':Strasse', $strasse);
+        $stmt->bindParam(':Status', $status);
+        $stmt->bindParam(':Kontakt', $kontakt);
+        $stmt->bindParam(':Ort', $ort);
+        $stmt->bindParam(':Klasse', $kundenklasse);
+
+        //Anweisung ausführen
+        $stmt->execute();
 }
 ?>
 
