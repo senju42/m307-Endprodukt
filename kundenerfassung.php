@@ -19,16 +19,23 @@ try {
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }
 
-$sql = "
+// SQL-Statement für Kunden
+$sqlKunden = "
 INSERT INTO `kunden` (`Kunden_ID`, `Vorname`, `Nachname`, `Strasse&Nummer`, `status`, `Kontakt_Kontakt_ID`, `Wohnort_Wohnort_ID`, `Klasse_Klasse_ID`) 
-             VALUES         (NULL,  :Vorname, :Nachname,   :Strasse&Nummer,  :status,                \'1\',                \'1\',              \'4\');";
-$sql = "
+             VALUES         (NULL,  :Vorname,  :Nachname,         :Strasse,  :Status,             :Kontakt,                 :Ort,            :Klasse);";
+
+// SQL-Statement für Klasse
+$sqlKlasse = "
 INSERT INTO `klasse` (`Klasse_ID`, `Klasse_Name`)
              VALUES         (NULL,  :Klasse_Name);";
-$sql = "
+
+// SQL-Statement für Kontakt
+$sqlKontakt = "
 INSERT INTO `kontakt`(`Kontakt_ID`, `Email`, `Telefon`)
              VALUES          (NULL,  :Email,  :Telefon);";
-$sql = "
+
+// SQL-Statement für Wohnort
+$sqlWohnort = "
 INSERT INTO `wohnort`(`Wohnort_ID`, `Ortsname`, `Postleitzahl`, `Kanton`)
              VALUES          (NULL,  :Ortsname,  :Postleitzahl,  :Kanton);";
 
@@ -36,14 +43,34 @@ INSERT INTO `wohnort`(`Wohnort_ID`, `Ortsname`, `Postleitzahl`, `Kanton`)
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt = $db->prepare($sql);
 
-        //Werte an Parameter binden
-        $stmt->bindParam(':Vorname', $vorname);
-        $stmt->bindParam(':Nachname', $nachname);
-        $stmt->bindParam(':Strasse', $strasse);
-        $stmt->bindParam(':Status', $status);
-        $stmt->bindParam(':Kontakt', $kontakt);
-        $stmt->bindParam(':Ort', $ort);
-        $stmt->bindParam(':Klasse', $kundenklasse);
+        // Kunden-Daten einfügen
+        $stmtKunden = $db->prepare($sqlKunden);
+        $stmtKunden->bindParam(':Vorname', $vorname);
+        $stmtKunden->bindParam(':Nachname', $nachname);
+        $stmtKunden->bindParam(':Strasse', $strasse);
+        $stmtKunden->bindParam(':Status', $status); // Achtung: Du musst $status definieren!
+        $stmtKunden->bindParam(':Kontakt', $kontakt);
+        $stmtKunden->bindParam(':Ort', $ort);
+        $stmtKunden->bindParam(':Klasse', $kundenklasse);
+        $stmtKunden->execute();
+
+        // Klasse-Daten einfügen
+        $stmtKlasse = $db->prepare($sqlKlasse);
+        $stmtKlasse->bindParam(':Klasse_Name', $kundenklasse);
+        $stmtKlasse->execute();
+
+        // Kontakt-Daten einfügen
+        $stmtKontakt = $db->prepare($sqlKontakt);
+        $stmtKontakt->bindParam(':Email', $kontaktEmail); // Achtung: Du musst $kontaktEmail definieren!
+        $stmtKontakt->bindParam(':Telefon', $kontaktTelefon); // Achtung: Du musst $kontaktTelefon definieren!
+        $stmtKontakt->execute();
+
+        // Wohnort-Daten einfügen
+        $stmtWohnort = $db->prepare($sqlWohnort);
+        $stmtWohnort->bindParam(':Ortsname', $wohnortOrtsname); // Achtung: Du musst $wohnortOrtsname definieren!
+        $stmtWohnort->bindParam(':Postleitzahl', $wohnortPLZ); // Achtung: Du musst $wohnortPLZ definieren!
+        $stmtWohnort->bindParam(':Kanton', $wohnortKanton); // Achtung: Du musst $wohnortKanton definieren!
+        $stmtWohnort->execute();
 
         //Anweisung ausführen
         $stmt->execute();
