@@ -90,9 +90,8 @@
         }
         ?>
     </table>
-
-    <!-- Link zur Seite für die Erfassung neuer Kunden -->
-    <a href="kundenerfassung.php">Kunde erfassen</a>
 </body>
+<!-- Link zur Seite für die Erfassung neuer Kunden -->
+<a href="kundenerfassung.php">Kunde erfassen</a>
 
 </html>
