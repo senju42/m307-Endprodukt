@@ -40,6 +40,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmtKunden->bindParam(':Ort', $ort);
     $stmtKunden->bindParam(':Klasse', $kundenklasse);
     $stmtKunden->execute();
+
+    // Weiterleitung nach erfolgreicher Erfassung
+    header("Location: erfasst.php");
+    exit();
 }
 ?>
 
@@ -58,16 +62,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <h1>Kundenerfassung</h1>
         <form method="POST" action="">
                 <label for="vorname">Vorname</label>
-                <input type="vorname" name="vorname" id="vorname" />
+                <input type="vorname" name="vorname" id="vorname" required/>
 
                 <label for="nachname">Nachname</label>
-                <input type="nachname" name="nachname" id="nachname" />
+                <input type="nachname" name="nachname" id="nachname" required/>
 
                 <label for="strasse">Strasse & Hausnummer</label>
-                <input type="strasse" name="strasse" id="strasse" />
+                <input type="strasse" name="strasse" id="strasse" required/>
 
                 <label for="status">Status</label>
-                <input type="status" name="status" id="status" />
+                <input type="status" name="status" id="status" required/>
 
                 <!-- <label for="strasse">Strasse & Nr.</label>
                 <input type="strasse" name="strasse" id="strasse" /> -->
@@ -104,16 +108,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="telefon" name="telefon" id="telefon" /> -->
                 <div>
                         <p>Kundenklasse</p>
-                        <input type="radio" name="kundenklasse" id="firmenkunde" value="1" />
+                        <input type="radio" name="kundenklasse" id="firmenkunde" value="1" required/>
                         <label for="firmenkunde"><i>Firmenkunde</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="einzelperson" value="2" />
+                        <input type="radio" name="kundenklasse" id="einzelperson" value="2" required/>
                         <label for="einzelperson"><i>Einzelperson</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="partner" value="3" />
+                        <input type="radio" name="kundenklasse" id="partner" value="3" required/>
                         <label for="partner"><i>Partner</i></label><br />
 
-                        <input type="radio" name="kundenklasse" id="bljs" value="4" />
+                        <input type="radio" name="kundenklasse" id="bljs" value="4" required/>
                         <label for="bljs"><i>Betriebslehrjahrstelle</i></label><br />
                 </div>
                 <div class="container">
