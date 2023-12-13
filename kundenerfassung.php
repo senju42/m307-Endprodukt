@@ -1,4 +1,6 @@
 <?php
+//print_r($_POST);
+
 // INHALT SPEICHERN
 $vorname = $_POST['vorname'] ?? "";
 $nachname = $_POST['nachname'] ?? "";
@@ -22,26 +24,8 @@ try {
 
 // SQL-Statement für Kunden
 $sqlKunden = "
-    INSERT INTO `kunden` (`Kunden_ID`, `Vorname`, `Nachname`, `Strasse&Nummer`, `status`, `Kontakt_Kontakt_ID`, `Wohnort_Wohnort_ID`, `Klasse_Klasse_ID`) 
-    VALUES (NULL, :Vorname, :Nachname, :Strasse, :Status, :Kontakt, :Ort, :Klasse);
-";
-
-// SQL-Statement für Klasse
-$sqlKlasse = "
-    INSERT INTO `klasse` (`Klasse_ID`, `Klasse_Name`)
-    VALUES (NULL, :Klasse_Name);
-";
-
-// SQL-Statement für Kontakt
-$sqlKontakt = "
-    INSERT INTO `kontakt`(`Kontakt_ID`, `Email`, `Telefon`)
-    VALUES (NULL, :Email, :Telefon);
-";
-
-// SQL-Statement für Wohnort
-$sqlWohnort = "
-    INSERT INTO `wohnort`(`Wohnort_ID`, `Ortsname`, `Postleitzahl`, `Kanton`)
-    VALUES (NULL, :Ortsname, :Postleitzahl, :Kanton);
+    INSERT INTO `kunden` (`Kunden_ID`, `Vorname`, `Nachname`, `Strasse&Nummer`, `status`, `Kontakt_Kontakt_ID`, `Wohnort_Wohnort_ID`, `Klasse_Klasse_ID`)
+                  VALUES (NULL, :Vorname, :Nachname, :Strasse, :Status, :Kontakt, :Ort, :Klasse);
 ";
 
 //Abfrage abschicken
@@ -56,24 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmtKunden->bindParam(':Ort', $ort);
     $stmtKunden->bindParam(':Klasse', $kundenklasse);
     $stmtKunden->execute();
-
-    // Klasse-Daten einfügen
-    $stmtKlasse = $db->prepare($sqlKlasse);
-    $stmtKlasse->bindParam(':Klasse_Name', $kundenklasse);
-    $stmtKlasse->execute();
-
-    // Kontakt-Daten einfügen
-    $stmtKontakt = $db->prepare($sqlKontakt);
-    $stmtKontakt->bindParam(':Email', $kontakt);
-    $stmtKontakt->bindParam(':Telefon', ''); // Kein Feld im Formular
-    $stmtKontakt->execute();
-
-    // Wohnort-Daten einfügen
-    $stmtWohnort = $db->prepare($sqlWohnort);
-    $stmtWohnort->bindParam(':Ortsname', $ort);
-    $stmtWohnort->bindParam(':Postleitzahl', ''); // Kein Feld im Formular
-    $stmtWohnort->bindParam(':Kanton', ''); // Kein Feld im Formular
-    $stmtWohnort->execute();
 }
 ?>
 
@@ -90,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
         <h1>Kundenerfassung</h1>
-        <form method="POST" action="erfasst.php">
+        <form method="POST" action="">
                 <label for="vorname">Vorname</label>
                 <input type="vorname" name="vorname" id="vorname" />
 
