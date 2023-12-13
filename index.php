@@ -42,7 +42,9 @@
 </head>
 
 <body>
-    <h1>Erfasste Kunden</h1>
+    <h1>Erfasste Kunden</h1><br>
+    <!-- Link zur Seite für die Erfassung neuer Kunden -->
+    <a href="kundenerfassung.php">Kunde erfassen</a><br>
 
     <!-- Kundeninformationen probe -->
     <!-- $kunden = array(
@@ -91,7 +93,6 @@
         ?>
     </table>
 </body>
-<!-- Link zur Seite für die Erfassung neuer Kunden -->
-<a href="kundenerfassung.php">Kunde erfassen</a>
+
 
 </html>
