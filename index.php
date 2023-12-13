@@ -2,16 +2,14 @@
 <html lang="de">
 
 <head>
-   
-<!-- Deklaration des HTML-Dokumenttyps und der Sprache -->
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <title>Kundenliste</title> 
+    <!-- Deklaration des HTML-Dokumenttyps und der Sprache -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundenliste</title>
     <style>
-        
         /* Styling für das Aussehen der Seite */
         body {
-            font-family: Arial, sans-serif; 
+            font-family: Arial, sans-serif;
         }
 
         table {
@@ -41,52 +39,17 @@
             display: inline-block;
         }
     </style>
-
-
-
-
-
-
-
-    <?php
-$servername = "m290";
-$username = "Besucher";
-$password = "1-4m-h3r3t0r34d";
-$dbname = "m290_endprodukt_kunden_db";
-
-// Verbindung herstellen
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Verbindung überprüfen
-if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-}
-
-echo "Verbindung erfolgreich hergestellt";
-
-// Verbindung schließen
-$conn->close();
-?>
-
-
-
-
-
-
-
-
 </head>
 
 <body>
     <h1>Erfasste Kunden</h1>
 
-<!-- Kundeninformationen probe -->
+    <!-- Kundeninformationen probe -->
+    <!-- $kunden = array(
+        array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
+    ); -->
 
     <?php
-    $kunden = array(
-        array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
-    );
-
     //VERBINDUNG DB
     // User und Passwort
     $dbuser = 'Besucher';
@@ -99,14 +62,6 @@ $conn->close();
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
     }
     ?>
-<?php
-    // PHP-Code für die Kundenliste
-    
-    $kunden = array(
-        array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
-    );
-?>
-
 
     <table>
         <!-- Tabelle zur Anzeige der Kundeninformationen -->
@@ -114,25 +69,30 @@ $conn->close();
             <th>Name</th>
             <th>Vorname</th>
             <th>Strasse & Hausnummer</th>
-            <th>Ortsname</th>
-            <th>PLZ</th>
-            <th>Kanton</th>
-            <th>E-Mail</th>
-            <th>Telefon</th>
-            <th>Kundenklasse</th>
             <th>Status</th>
+            <th>Kundenklasse</th>
         </tr>
         <?php
-        foreach ($kunden as $kunde) {
-            echo "<tr>";
-            foreach ($kunde as $info) {
-                echo "<td>$info</td>";
-            }
-            echo "</tr>";
+        $sql = "SELECT * FROM kunden";
+        $stmt = $db->prepare($sql);
+        $stmt->execute();
+
+        while ($kunden = $stmtKunden->fetch()) {
+            $vorname = $kunden["Vorname"];
+            $nachname = $kunden['Nachname'];
+            $strasse = $kunden['Strasse'];
+            $status = $kunden['Status'];
+            $kontakt = $kunden['Kontakt'];
+            $ort = $kunden['Ort'];
+            $kundenklasse = $kunden['Klasse'];
+
+            echo "<tr><td>$vorname</td><td>$nachname</td><td>$strasse</td><td>$status</td><td>$kontakt</td><td>$ort</td><td>$kundenklasse</td></tr>";
         }
         ?>
     </table>
+
+    <!-- Link zur Seite für die Erfassung neuer Kunden -->
+    <a href="kundenerfassung.php">Kunde erfassen</a>
 </body>
-<a href="kundenerfassung.php">Kunde erfassen</a> <!-- Link zur Seite für die Erfassung neuer Kunden -->
 
 </html>
