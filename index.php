@@ -41,6 +41,40 @@
             display: inline-block;
         }
     </style>
+
+
+
+
+
+
+
+    <?php
+$servername = "m290";
+$username = "Besucher";
+$password = "1-4m-h3r3t0r34d";
+$dbname = "m290_endprodukt_kunden_db";
+
+// Verbindung herstellen
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verbindung überprüfen
+if ($conn->connect_error) {
+    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+}
+
+echo "Verbindung erfolgreich hergestellt";
+
+// Verbindung schließen
+$conn->close();
+?>
+
+
+
+
+
+
+
+
 </head>
 
 <body>
