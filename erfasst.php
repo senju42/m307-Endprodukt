@@ -10,11 +10,12 @@
     <p>Folgende Daten wurden gespeichert:</p>
     <ul>
         <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                foreach ($_POST as $key => $value) {
-                    echo "<li><strong>" . htmlspecialchars($key) . ":</strong> " . htmlspecialchars($value) . "</li>";
-                }
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // Hier gehen wir alle gesendeten Daten durch und zeigen sie an
+            foreach ($_POST as $key => $value) {
+                echo "<li><strong>" . htmlspecialchars($key) . ":</strong> " . htmlspecialchars($value) . "</li>";
             }
+        }
         ?>
     </ul>
     <a href="index.php">Zurück zur Kundenliste</a><br>
