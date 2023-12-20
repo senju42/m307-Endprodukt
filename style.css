@@ -179,4 +179,89 @@ a {
 
 
 
+   /* erfasst.php */
+
+/* Gemeinsame Stile für alle Seiten */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h2 {
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #4caf50;
+    color: white;
+}
+
+/* Stile nur für erfasst.php */
+.erfasst-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.erfasst-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.erfasst-container li {
+    margin-bottom: 10px;
+}
+
+.erfasst-container a {
+    display: inline-block;
+    padding: 12px 24px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    border: 2px solid #8cbf35;
+    border-radius: 4px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.erfasst-container a:hover {
+    background-color: #8cbf35;
+}
+
+
     
