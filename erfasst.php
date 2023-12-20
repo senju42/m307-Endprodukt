@@ -10,7 +10,7 @@ try {
     die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }
 
-$sql = "SELECT * FROM `kunden_klasse_kontakt_wohnort` WHERE `Kunden_ID` = :id";
+$sql = "SELECT * FROM `kunden` WHERE `Kunden_ID` = :id";
 $stmt = $db->prepare($sql);
 $stmt->bindValue(':id', $id, PDO::PARAM_INT);
 $stmt->execute();
