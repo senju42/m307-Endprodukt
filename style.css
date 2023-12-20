@@ -175,3 +175,14 @@ a {
         background-color: #4caf50;
         color: white;
     }
+
+    Hier ist ein einfacher CSS-Code, den du für das <li>-Element verwenden kannst:
+
+    css
+    
+    li {
+        list-style-type: none; /* Entfernt Aufzählungszeichen */
+        margin-bottom: 10px; /* Gibt etwas Platz nach unten für bessere Lesbarkeit */
+        font-size: 16px; /* Ändert die Schriftgröße nach Bedarf */
+        /* Weitere Stilattribute können nach Bedarf hinzugefügt werden */
+    }
