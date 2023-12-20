@@ -75,18 +75,19 @@
             <th>Kundenklasse</th>
         </tr>
         <?php
-        $sql = "SELECT * FROM kunden";
+        $sql = "SELECT * FROM `kunden_klasse_kontakt_wohnort`;";
         $stmt = $db->prepare($sql);
         $stmt->execute();
 
-        while ($kunden = $stmtKunden->fetch()) {
+        while ($kunden = $stmt->fetch()) {
+           // var_dump($kunden);
             $vorname = $kunden["Vorname"];
             $nachname = $kunden['Nachname'];
-            $strasse = $kunden['Strasse'];
-            $status = $kunden['Status'];
-            $kontakt = $kunden['Kontakt'];
-            $ort = $kunden['Ort'];
-            $kundenklasse = $kunden['Klasse'];
+            $strasse = $kunden['Strasse&Nummer'];
+            $status = $kunden['status'];
+            $kontakt = $kunden['Kontakt_Kontakt_ID'];
+            $ort = $kunden['Wohnort_Wohnort_ID'];
+            $kundenklasse = $kunden['Klasse_Klasse_ID'];
 
             echo "<tr><td>$vorname</td><td>$nachname</td><td>$strasse</td><td>$status</td><td>$kontakt</td><td>$ort</td><td>$kundenklasse</td></tr>";
         }
