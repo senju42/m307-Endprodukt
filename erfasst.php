@@ -1,3 +1,6 @@
+<?php
+$id = $_GET['id'];
+?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -10,12 +13,8 @@
     <p>Folgende Daten wurden gespeichert:</p>
     <ul>
         <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // Hier gehen wir alle gesendeten Daten durch und zeigen sie an
-            foreach ($_POST as $key => $value) {
-                echo "<li><strong>" . htmlspecialchars($key) . ":</strong> " . htmlspecialchars($value) . "</li>";
-            }
-        }
+echo $id; 
+$sql = "SELECT *  FROM `kunden` WHERE `Kunden_ID` = $id;";
         ?>
     </ul>
     <a href="index.php">Zurück zur Kundenliste</a><br>

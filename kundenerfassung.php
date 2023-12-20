@@ -42,7 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmtKunden->execute();
 
     // Weiterleitung nach erfolgreicher Erfassung
-    header("Location: erfasst.php");
+    $id = $db->lastInsertId();
+    header("Location: erfasst.php?id=$id");
     exit();
 }
 ?>
