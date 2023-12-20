@@ -12,12 +12,12 @@ $kundenklasse = $_POST['kundenklasse'] ?? "";
 
 // VERBINDUNG MIT DB
 // User und Passwort
-$dbuser = 'root';
-$dbpass = '';
+$dbuser = 'lhuber_m307';
+$dbpass = 'lhuber_m307';
 
 //Verbindung erstellen
 try {
-    $db = new \PDO('mysql:host=localhost;dbname=m290_endprodukt_kunden-db', $dbuser, $dbpass);
+    $db = new \PDO('mysql:host=localhost;dbname=lhuber_m307', $dbuser, $dbpass);
 } catch (\PDOException $e) {
     die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }

@@ -1,11 +1,11 @@
 <?php
 $id = $_GET['id'];
 
-$dbuser = 'root';
-$dbpass = '';
+$dbuser = 'lhuber_m307';
+$dbpass = 'lhuber_m307';
 
 try {
-    $db = new PDO('mysql:host=localhost;dbname=m290_endprodukt_kunden-db', $dbuser, $dbpass);
+    $db = new PDO('mysql:host=localhost;dbname=lhuber_m307', $dbuser, $dbpass);
 } catch (PDOException $e) {
     die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
 }
