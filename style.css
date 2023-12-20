@@ -176,25 +176,7 @@ a {
         color: white;
     }
 
-    .custom-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 20px;
-  }
-  
-  .custom-table, .custom-table th, .custom-table td {
-      border: 1px solid #ddd;
-  }
-  
-  .custom-table th, .custom-table td {
-      padding: 10px;
-      text-align: left;
-  }
-  
-  .custom-table th {
-      background-color: #4caf50;
-      color: white;
-  }
+
 
 
     
