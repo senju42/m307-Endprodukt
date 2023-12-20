@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <!-- Deklaration des HTML-Dokumenttyps und der Sprache -->
     <meta charset="UTF-8">
@@ -11,24 +10,19 @@
         body {
             font-family: Arial, sans-serif;
         }
-
         table {
             border-collapse: collapse;
             width: 100%;
             margin-top: 20px;
         }
-
-        th,
-        td {
+        th, td {
             border: 1px solid #dddddd;
             text-align: left;
             padding: 8px;
         }
-
         th {
             background-color: #C5DF9A;
         }
-
         a {
             text-decoration: none;
             padding: 10px;
@@ -40,60 +34,35 @@
         }
     </style>
 </head>
-
 <body>
     <h1>Erfasste Kunden</h1><br>
-    <!-- Link zur Seite für die Erfassung neuer Kunden -->
     <a href="kundenerfassung.php">Kunde erfassen</a><br>
 
-    <!-- Kundeninformationen probe -->
-    <!-- $kunden = array(
-        array("Mannhart", "Manfred", "Fidlistrasse 48", "ST.Gallen", "9000", "ST.Gallen", "manfred.mannhart@gmail.com", "079 133 80 90", "Einzelperson", "Aktiv"),
-    ); -->
-
     <?php
-    //VERBINDUNG DB
-    // User und Passwort
-    $dbuser = 'Besucher';
-    $dbpass = '1-4m-h3r3t0r34d';
-
-    //Verbindung erstellen
+    $dbuser = 'root';
+    $dbpass = '';
     try {
         $db = new \PDO('mysql:host=localhost;dbname=m290_endprodukt_kunden-db', $dbuser, $dbpass);
     } catch (\PDOException $e) {
         die("Verbindung zur Datenbank fehlgeschlagen: " . $e->getMessage());
     }
+
+    $sql = "SELECT * FROM kunden";
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+
+    echo "<table>";
+    echo "<tr><th>Name</th><th>Vorname</th><th>Strasse & Hausnummer</th><th>Status</th><th>Kundenklasse</th></tr>";
+    while ($kunden = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo "<tr>";
+        echo "<td>" . htmlspecialchars($kunden['Nachname']) . "</td>";
+        echo "<td>" . htmlspecialchars($kunden['Vorname']) . "</td>";
+        echo "<td>" . htmlspecialchars($kunden['Strasse&Nummer']) . "</td>"; // Achten Sie auf den korrekten Spaltennamen in Ihrer Datenbank.
+        echo "<td>" . htmlspecialchars($kunden['status']) . "</td>";
+        echo "<td>" . htmlspecialchars($kunden['Klasse_Klasse_ID']) . "</td>"; // Achten Sie auf den korrekten Spaltennamen in Ihrer Datenbank.
+        echo "</tr>";
+    }
+    echo "</table>";
     ?>
-
-    <table>
-        <!-- Tabelle zur Anzeige der Kundeninformationen -->
-        <tr>
-            <th>Name</th>
-            <th>Vorname</th>
-            <th>Strasse & Hausnummer</th>
-            <th>Status</th>
-            <th>Kundenklasse</th>
-        </tr>
-        <?php
-        $sql = "SELECT * FROM `kunden_klasse_kontakt_wohnort`;";
-        $stmt = $db->prepare($sql);
-        $stmt->execute();
-
-        while ($kunden = $stmt->fetch()) {
-           // var_dump($kunden);
-            $vorname = $kunden["Vorname"];
-            $nachname = $kunden['Nachname'];
-            $strasse = $kunden['Strasse&Nummer'];
-            $status = $kunden['status'];
-            $kontakt = $kunden['Kontakt_Kontakt_ID'];
-            $ort = $kunden['Wohnort_Wohnort_ID'];
-            $kundenklasse = $kunden['Klasse_Klasse_ID'];
-
-            echo "<tr><td>$vorname</td><td>$nachname</td><td>$strasse</td><td>$status</td><td>$kontakt</td><td>$ort</td><td>$kundenklasse</td></tr>";
-        }
-        ?>
-    </table>
 </body>
-
-
 </html>
