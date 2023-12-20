@@ -175,3 +175,20 @@ a {
         background-color: #4caf50;
         color: white;
     }
+
+    Hier ist ein einfacher CSS-Code, den du für das <li>-Element verwenden kannst:
+
+    css
+    
+/* Füge diesen Code zu deinem bestehenden CSS hinzu */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Füge weitere Stile nach Bedarf hinzu */
