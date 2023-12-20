@@ -24,6 +24,57 @@ $kunde = $stmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kunde erfasst</title>
     <link rel="stylesheet" href="style.css" />
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f0f0f0;
+            font-size: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        a {
+            display: inline-block;
+            padding: 12px 24px;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #4caf50;
+            border-radius: 4px;
+            background-color: #4caf50;
+            transition: background-color 0.3s ease-in-out;
+            margin-top: 20px;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+</style>
 </head>
 <body>
     <h1>Kunde erfolgreich erfasst</h1>
