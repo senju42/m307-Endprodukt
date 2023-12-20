@@ -181,8 +181,9 @@ a {
     css
     
     li {
-        list-style-type: none; /* Entfernt Aufzählungszeichen */
-        margin-bottom: 10px; /* Gibt etwas Platz nach unten für bessere Lesbarkeit */
-        font-size: 16px; /* Ändert die Schriftgröße nach Bedarf */
-        /* Weitere Stilattribute können nach Bedarf hinzugefügt werden */
+      list-style-type: none; /* Entfernt die Aufzählungspunkte */
+      margin-bottom: 10px; /* Fügt etwas Abstand zwischen den Listenelementen hinzu */
+      font-family: Arial, sans-serif; /* Wähle eine geeignete Schriftart */
+      font-size: 16px; /* Setzt die Schriftgröße */
+      color: #333; /* Setzt die Textfarbe auf Dunkelgrau */
     }
