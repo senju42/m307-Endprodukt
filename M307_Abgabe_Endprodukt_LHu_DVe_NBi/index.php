@@ -6,32 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kundenliste</title>
     <style>
-        /* Styling für das Aussehen der Seite */
-        body {
-            font-family: Arial, sans-serif;
-        }
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 20px;
-        }
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-        th {
-            background-color: #C5DF9A;
-        }
-        a {
-            text-decoration: none;
-            padding: 10px;
-            background-color: #8CBF35;
-            color: #fff;
-            border-radius: 5px;
-            margin-top: 20px;
-            display: inline-block;
-        }
+.erfasst-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px solid #8cbf35;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Abstand zum oberen Bildschirmrand */
+}
+ 
+/* Stile für Listen, damit sie wie im Formular aussehen */
+.erfasst-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; /* Entfernt den Standard-Abstand */
+}
+ 
+.erfasst-container li {
+    background-color: #f9f9f9; /* Leichter Hintergrund für jede Zeile */
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #8cbf35;
+    border-radius: 40px; /* Abgerundete Ecken wie im Formular */
+}
+ 
+/* Stile für die Schaltflächen, um Konsistenz zu gewährleisten */
+.erfasst-container a {
+    margin-bottom: 20px; /* Abstand zwischen den Schaltflächen */
+}
+ 
+@media only screen and (max-width: 600px) {
+    .erfasst-container {
+        width: 100%;
+        max-width: none;
+    }
+}
     </style>
 </head>
 <body>
