@@ -180,10 +180,15 @@ a {
 
     css
     
-    li {
-      list-style-type: none; /* Entfernt die Aufzählungspunkte */
-      margin-bottom: 10px; /* Fügt etwas Abstand zwischen den Listenelementen hinzu */
-      font-family: Arial, sans-serif; /* Wähle eine geeignete Schriftart */
-      font-size: 16px; /* Setzt die Schriftgröße */
-      color: #333; /* Setzt die Textfarbe auf Dunkelgrau */
-    }
+/* Füge diesen Code zu deinem bestehenden CSS hinzu */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* Füge weitere Stile nach Bedarf hinzu */
